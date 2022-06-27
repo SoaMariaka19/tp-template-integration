@@ -7,8 +7,13 @@ import { Footer } from "./components/Footer";
 import { Card } from "./components/Card";
 import { faker } from "@faker-js/faker";
 import { useState } from "react";
+import ModalUser from "./components/Modal";
 
 function App() {
+  
+  const [show,setShow] = useState(false);
+  const closeModal =() => setShow(false);
+
   const employees = new Array(15).fill(null).map((_) => ({
     name: faker.name.findName(),
     position: faker.company.bsNoun(),
@@ -29,8 +34,11 @@ function App() {
   }
 
   return (
-    <div className={sidebarClass}>
+  <div className={sidebarClass}>
       <Navbar toggleSidebarClass={toggleSidebarClass} />
+      {
+        show ? <div className="modal-drop" onClick={()=>closeModal}></div> : null
+      }
       <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
           <Sidebar />
@@ -51,7 +59,9 @@ function App() {
               </Card>
               <Card title="DataTable Example">
                 <EmployeeList items={employees} />
+              <button className="btn-dark" onClick={()=>setShow(true)}>AJOUTER USER</button>
               </Card>
+              <ModalUser show={show} closeModal={closeModal}/>
             </div>
           </main>
           <Footer />

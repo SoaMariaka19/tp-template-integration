@@ -16,7 +16,7 @@ export function Navbar(props) {
         <div className="input-group">
           <input
             className="form-control"
-            type="text"
+            type="search"
             placeholder="Search for..."
             aria-label="Search for..."
             aria-describedby="btnNavbarSearch"

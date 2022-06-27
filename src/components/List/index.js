@@ -1,7 +1,24 @@
 import "./style.css";
+import Tab from "../table";
+import users from "../Data";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export function EmployeeList(props) {
-  const { items } = props;
+  const [result,setResult] = useState([]); 
+
+  useEffect(()=>{
+    const promise = users.get('/users');
+    
+    promise.then((response)=>{
+         setResult(response.data)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  },[]
+  )
+
   return (
     <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
       <div className="dataTable-top">
@@ -28,38 +45,35 @@ export function EmployeeList(props) {
         </div>
       </div>
       <div className="dataTable-container">
-        <table className="table-bordered">
+        <table className="table-bordered ">
           <thead>
             <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Company</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Company</th>
             </tr>
           </tfoot>
           <tbody>
-            {(items || []).map((item) => (
-              <tr key={item.name}>
-                <td>{item.name}</td>
-                <td>{item.position}</td>
-                <td>{item.office}</td>
-                <td>{item.age}</td>
-                <td>{item.startDate}</td>
-                <td>{item.salary}</td>
-              </tr>
-            ))}
+            {
+              result.map((e)=>(
+            <Tab name={e.name} username={e.username} email={e.email} address={e.address.city} phone={e.phone} website={e.website} company={e.company.name} />
+              ))
+            }
           </tbody>
         </table>
       </div>

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+body{
+font-family: 'Quicksand', 'sans-serif';
+}
 table {
   width: 100%;
   caption-side: bottom;
@@ -53,4 +57,9 @@ table th:nth-child(6) {
 .colspaned {
   width: 100%;
   text-align: center;
+}
+button{
+   /*
+   amboaro rty a
+    */
 }
