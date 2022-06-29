@@ -40,32 +40,42 @@ const ChangeWebsite = (e) =>{
   setWebsite(e.target.value())
 }
   /* Methode PUT AXIOS*/
-  useEffect(() => {
-    // PUT request using axios inside useEffect React hook
-    const article = { 
-      name : {Name} ,
-      username : {Username} ,
-      email : {Email},
-      address : {
-        street : "Street",
-        suite : "Suite",
-        city : {Address},
-        zipcode : "Zipcode"
-      },
-      phone : {Phone},
-      website : {Website},
-      company : {
-        name : {Company},
-        catchPhrase : "CatchPhrase",
-        bs : "bs"
+  
+  try{
+    const{data} = users({
+      method : 'put',
+      url : 'https://jsonplaceholder.typicode.com/users',
+      data:{
+        name : Name,
+        username : Username,
+        email : Email,
+        address : {
+          street:"",
+          suite : "",
+          city:Address,
+          zipcode : "",
+          geo:{
+            lat:"",
+            lng:""
+          }
+        },
+        phone : Phone,
+        website : Website,
+        company:{
+          name : Company,
+          catchPhrase : "",
+          bs:""
+        }
       }
-     };
-    users.put('/users', article)
-        .then(response => setUpdatedAt(response.data.updatedAt));
-
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, []);
-   
+    });
+  console.log("ressources ok");
+  }catch(err){
+    if(err.response.status === 404){
+      console.log("Ressource could not be found !");
+    }else{
+      console.log(err.message);
+    }
+  }
     return(
     <>
     {
