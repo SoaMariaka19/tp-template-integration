@@ -14,13 +14,13 @@ function ModalUser({ show , closeModal}){
           opacity: show ? '1' : '0'
         }}
         >
-          <div className="modal-header" >
+          <div className="modal-header" onClick={closeModal}>
               <b className="add" > AJOUT</b>
               <span className="close-modal-btn" onClick={closeModal} >X</span>
           </div> 
           <div className="modal-content">
               <div className="modal-body">
-              <form >
+              <form onSubmit={handleSubmit}>
                   
                   <input type="text" placeholder="Name"/>
                   <input type="text" placeholder="Username"/>
@@ -30,7 +30,7 @@ function ModalUser({ show , closeModal}){
                   <input type="text" placeholder="Phone"/>
                   <input type="text" placeholder="Website"/>
   
-                  <button className="btn-cancel" onClick={handleSubmit}>Ajouter</button>
+                  <button className="btn-cancel">Ajouter</button>
                   </form>
   
               </div>

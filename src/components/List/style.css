@@ -58,8 +58,8 @@ table th:nth-child(6) {
   width: 100%;
   text-align: center;
 }
-button{
-   /*
-   amboaro rty a
-    */
+.btn1{
+   background-color: #C71B2A;
+   width: 30%;
+  border: 5px solid transparent;
 }

@@ -59,7 +59,7 @@ function App() {
               </Card>
               <Card title="DataTable Example">
                 <EmployeeList items={employees} />
-              <button className="btn-dark" onClick={()=>setShow(true)}>AJOUTER USER</button>
+              <button className="btn-dark btn1" onClick={()=>setShow(true)}>AJOUTER USER</button>
               </Card>
               <ModalUser show={show} closeModal={closeModal}/>
             </div>

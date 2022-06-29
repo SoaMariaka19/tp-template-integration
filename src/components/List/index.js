@@ -6,7 +6,9 @@ import { useEffect } from "react";
 
 export function EmployeeList(props) {
   const [result,setResult] = useState([]); 
-
+/**
+   * Methode GET AXIOS
+   */
   useEffect(()=>{
     const promise = users.get('/users');
     

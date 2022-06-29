@@ -15,11 +15,11 @@
     z-index: 100;
 }
 .modal-header:hover{
-    background-color: rgb(224, 24, 24);
+    background-color: rgb(188, 143, 143);
     cursor: pointer;
 }
 .modal-header{
-    background: #2c2c2c;
+    background: #696969;
     color: #e9e9e9;
     padding: 1em;
     display: flex;
@@ -39,7 +39,7 @@
 .modal-body p{
     font-size: 1rem;
     background: #eee;
-    color: #333;
+    color: #696969;
     padding: 1rem;
     margin: 1rem 0 2rem 0;
     text-align: center;
@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 .btn-OpenModal{
-    background: #2c2c2c;
+    background: #696969;
     font-family: 'Quicksand', sans-serif;
     color:  #eee;
     margin: .2rem;
@@ -69,7 +69,7 @@
     width: 100%;
 }
 .btn-cancel{
-    background-color: rgba(113, 174, 214, 0.712);
+    background-color: rgb(112,128,144);
     color: rgb(17, 16, 16);
     display: flex;
     margin-left: 70%;
@@ -80,7 +80,7 @@
     text-align: center;
     border-radius: 12px 0 12px 0;
     font-size: large;
-    box-shadow: 12px 0 12px 0;
+    
     border: none;
 }
 .close-modal-btn:hover{
